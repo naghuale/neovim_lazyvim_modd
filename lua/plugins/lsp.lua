@@ -1,3 +1,5 @@
+local icons = require("utils.icons")
+
 return {
   {
     "neovim/nvim-lspconfig",
@@ -20,16 +22,25 @@ return {
       diagnostics = {
         underline = true,
         update_in_insert = false,
-        virtual_text = { spacing = 4, prefix = "●" },
+        virtual_lines = { only_current_line = true },
+        virtual_text = { spacing = 4, prefix = icons.circle }, -- add dignostics after code's line
         severity_sort = true,
-        signs = false, -- my signature
+        signs = true, -- display dignostics on line number
         float = {
           focusable = false,
           -- style = "minimal",
           border = "rounded",
           source = "if_many", -- or "always"
           header = "",
-          prefix = "  ",
+          prefix = icons.lightbulb,
+          format = function(diagnostic)
+            return string.format(
+              "%s (%s) [%s]",
+              diagnostic.message,
+              diagnostic.source,
+              diagnostic.code or diagnostic.user_data.lsp.code
+            )
+          end,
         },
       },
       -- Automatically format on save
@@ -93,9 +104,9 @@ return {
       end)
 
       -- diagnostics
-      for name, icon in pairs(require("lazyvim.config").icons.diagnostics) do
-        name = "DiagnosticSign" .. name
-        vim.fn.sign_define(name, { text = icon, texthl = name, numhl = "" })
+      for type, icon in pairs(require("lazyvim.config").icons.diagnostics) do
+        local name = "DiagnosticSign" .. type
+        vim.fn.sign_define(name, { text = icon, texthl = name, numhl = name })
       end
       vim.diagnostic.config(opts.diagnostics)
 
