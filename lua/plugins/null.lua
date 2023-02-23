@@ -8,11 +8,11 @@ return {
 
       return {
         sources = {
-          -- nls.builtins.formatting.prettierd,
-          nls.builtins.formatting.autopep8,
-          nls.builtins.formatting.djlint,
-          nls.builtins.formatting.stylua,
-          nls.builtins.diagnostics.flake8,
+          nls.builtins.formatting.prettierd, -- javascript, python, vue, css and etc...
+          nls.builtins.formatting.autopep8, -- python
+          nls.builtins.formatting.djlint, -- django
+          nls.builtins.formatting.stylua, -- lua
+          nls.builtins.diagnostics.flake8, -- python
           nls.builtins.diagnostics.eslint_d.with({
             diagnostics_format = "[eslint] #{m}\n(#{c})",
           }),
