@@ -28,19 +28,19 @@ return {
         signs = true, -- display dignostics on line number
         float = {
           focusable = false,
-          -- style = "minimal",
+          style = "minimal",
           border = "rounded",
           source = "if_many", -- or "always"
-          header = "",
+          header = "Diagnostic:",
           prefix = icons.lightbulb,
-          format = function(diagnostic)
-            return string.format(
-              "%s (%s) [%s]",
-              diagnostic.message,
-              diagnostic.source,
-              diagnostic.code or diagnostic.user_data.lsp.code
-            )
-          end,
+          --   format = function(diagnostic)
+          --     return string.format(
+          --       "%s (%s) [%s]",
+          --       diagnostic.message,
+          --       diagnostic.source,
+          --       diagnostic.code or diagnostic.user_data.lsp.code
+          --     )
+          --   end,
         },
       },
       -- Automatically format on save
