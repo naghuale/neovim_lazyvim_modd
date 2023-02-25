@@ -1,6 +1,10 @@
 return {
   {
     "mfussenegger/nvim-dap",
+    dependencies = {
+      "nvim-telescope/telescope-dap.nvim",
+      "mfussenegger/nvim-lua-debugger",
+    },
     config = function()
       local dap = require("dap")
 
@@ -82,6 +86,18 @@ return {
           protocol = "inspector",
           port = 9222,
           webRoot = "${workspaceFolder}",
+        },
+      }
+      dap.adapters.neovim = function(callback)
+        local server = require("lua_debugger").launch()
+        callback({ type = "server", host = server.host, port = server.port })
+      end
+
+      dap.configurations.lua = {
+        {
+          type = "neovim",
+          request = "attach",
+          name = "Attach to running neovim instance",
         },
       }
     end,
