@@ -12,6 +12,10 @@ return {
     opts = {
       highlight = { enable = true },
       indent = { enable = true },
+      autotag = { -- Auto tag html
+        enable = true,
+        filetypes = { "html", "xml", "javascriptreact", "typescriptreact" },
+      },
       context_commentstring = { enable = true, enable_autocmd = false },
       ensure_installed = {
         "bash",

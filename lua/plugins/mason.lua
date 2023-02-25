@@ -20,6 +20,8 @@ return {
         "tailwindcss-language-server",
         "vue-language-server",
         "prisma-language-server",
+        "node-debug2-adapter",
+        "chrome-debug-adapter",
       },
     },
     ---@param opts MasonSettings | {ensure_installed: string[]}

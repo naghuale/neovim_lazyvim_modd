@@ -121,6 +121,9 @@ return {
       local servers = opts.servers
       local capabilities = require("cmp_nvim_lsp").default_capabilities(vim.lsp.protocol.make_client_capabilities())
 
+      capabilities.textDocument.colorProvider = {
+        dynamicRegistration = true,
+      }
       capabilities.textDocument.completion.completionItem.snippetSupport = true
       capabilities.textDocument.foldingRange = {
         dynamicRegistration = false,
