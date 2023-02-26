@@ -23,3 +23,6 @@ vim.keymap.set("n", "<F6>", "<CMD>lua require('dap').step_into()<CR>", { desc = 
 vim.keymap.set("n", "<F7>", "<CMD>lua require('dap').step_out()<CR>", { desc = "dap:step_out" })
 vim.keymap.set("n", "<Leader>dO", "<CMD>lua require('dap').step_over()<CR>", { desc = "dap:step_over" })
 vim.keymap.set("n", "<Leader>dt", "<CMD>lua require('dap').terminate()<CR>", { desc = "dap:terminate" })
+
+-- Formatting
+vim.keymap.set("n", "<Leader>lf", "<CMD>lua vim.lsp.buf.formatting()<CR>", { desc = "formatting" })
