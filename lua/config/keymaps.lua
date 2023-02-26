@@ -25,4 +25,4 @@ vim.keymap.set("n", "<Leader>dO", "<CMD>lua require('dap').step_over()<CR>", { d
 vim.keymap.set("n", "<Leader>dt", "<CMD>lua require('dap').terminate()<CR>", { desc = "dap:terminate" })
 
 -- Formatting
-vim.keymap.set("n", "<Leader>lf", "<CMD>lua vim.lsp.buf.formatting()<CR>", { desc = "formatting" })
+vim.keymap.set("n", "<Leader>lf", "<CMD>lua vim.lsp.buf.formatting()<CR>", { desc = "Formatting" })
